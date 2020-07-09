@@ -4,16 +4,21 @@ import style from './Burger.module.scss';
 
 const burger = (props) => {
 
+    {/** BARDZO FAJNY KOD - ZAPAMIĘTAĆ!!!! **/}
+    let ingredients = Object.keys(props.ingredients).map(ing => {
+        return(
+            [...Array(props.ingredients[ing])].map((_, i) => <BurgerIngredient key={ing + i} type={ing} />)
+        )
+    }).reduce((prev, curr) => {
+        return prev.concat(curr);
+    },[]);
+
+    if(ingredients.length === 0) ingredients = <p>Proszę dodać składniki!</p>;
+
     return (
         <div className={style.burger}>
             <BurgerIngredient type="bread-top" />
-            {Object.keys(props.ingredients).map(
-                igKey => {
-                    return ([...Array(props.ingredients[igKey])].map((_, i) => (
-                        < BurgerIngredient key={igKey + i} type={igKey} />
-                    )))
-                }
-            )}
+            {ingredients}
             <BurgerIngredient type="bread-bottom" />
         </div>
     );

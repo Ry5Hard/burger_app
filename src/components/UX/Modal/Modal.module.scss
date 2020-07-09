@@ -1,0 +1,24 @@
+.modalWrapper{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:rgba(0,0,0,.5);
+    z-index:100;
+}
+
+.modalBody{
+    position: fixed;
+    top:50%;
+    left:50%;
+    width:96vw;
+    max-width:500px;
+    max-height:96vh;
+    transform:translate(-50%, -50%);
+    background:#fff;
+    box-shadow:0 5px 5px rgba(0,0,0,.3);
+    padding:10px 20px 40px;
+    box-sizing:border-box;
+    z-index:500;
+}
